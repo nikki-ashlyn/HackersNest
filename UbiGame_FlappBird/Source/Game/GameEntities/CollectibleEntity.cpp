@@ -1,4 +1,4 @@
-#include "ObstacleEntity.h"
+#include "CollectibleEntity.h"
 
 #include "GameEngine/EntitySystem/Components/CollidableComponent.h"
 
@@ -6,11 +6,11 @@
 
 using namespace Game;
 
-ObstacleEntity::ObstacleEntity()	
+CollectibleEntity::CollectibleEntity()
 {
 	m_renderComponent = AddComponent<GameEngine::SpriteRenderComponent>();
 	m_renderComponent->SetFillColor(sf::Color::Red);
-	m_renderComponent->SetTexture(GameEngine::eTexture::BG);
+	m_renderComponent->SetTexture(GameEngine::eTexture::Particles);
 	m_renderComponent->SetZLevel(2);
 	m_renderComponent->SetTileIndex(0, 0);
 
@@ -18,19 +18,19 @@ ObstacleEntity::ObstacleEntity()
 }
 
 
-ObstacleEntity::~ObstacleEntity()
+CollectibleEntity::~CollectibleEntity()
 {
 
 }
 
 
-void ObstacleEntity::OnAddToWorld()
+void CollectibleEntity::OnAddToWorld()
 {
 	Entity::OnAddToWorld();
 }
 
 
-void ObstacleEntity::OnRemoveFromWorld()
+void CollectibleEntity::OnRemoveFromWorld()
 {
 	Entity::OnRemoveFromWorld();
 }

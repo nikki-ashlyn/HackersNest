@@ -6,6 +6,8 @@
 #include "GameEngine/Util/CameraManager.h"
 #include "Game/GameEntities/PlayerEntity.h"
 #include "Game/GameEntities/ObstacleEntity.h"
+#include "Game/GameEntities/CollectibleEntity.h"
+
 
 using namespace Game;
 
@@ -21,7 +23,7 @@ GameBoard::GameBoard()
 	m_player->SetPos(sf::Vector2f(200.f, 50.f));	
 	m_player->SetSize(sf::Vector2f(40.f, 40.f));
 	
-	CreateBackGround();
+	//CreateBackGround();
 	//Debug
 	for (int a = 0; a < 3; ++a)
 	{
@@ -159,14 +161,14 @@ void GameBoard::SpawnNewObstacle(const sf::Vector2f& pos, const sf::Vector2f& si
 	ObstacleEntity* obstacle = new ObstacleEntity();
 	GameEngine::GameEngineMain::GetInstance()->AddEntity(obstacle);
 	obstacle->SetPos(pos);
-	obstacle->SetSize(sf::Vector2f(30, 30));
-
+	obstacle->SetSize(sf::Vector2f(20, 20));
+	
 	m_obstacles.push_back(obstacle);
 }
 
 void GameBoard::SpawnNewCollectible(const sf::Vector2f& pos, const sf::Vector2f& size)
 {
-	ObstacleEntity* obstacle = new ObstacleEntity();
+	CollectibleEntity* obstacle = new CollectibleEntity();
 	GameEngine::GameEngineMain::GetInstance()->AddEntity(obstacle);
 	obstacle->SetPos(pos);
 	obstacle->SetSize(sf::Vector2f(20, 20));
