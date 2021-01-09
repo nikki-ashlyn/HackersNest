@@ -20,8 +20,8 @@ void PlayerSoundComponent::OnAddToWorld()
 {
 	if (GameEngine::SoundComponent* const soundComponent = GetEntity()->GetComponent<GameEngine::SoundComponent>())
 	{
-		m_upSoundId   = soundComponent->LoadSoundFromFile("Resources/snd/thunder.wav");
-		m_downSoundId = soundComponent->LoadSoundFromFile("Resources/snd/glassbreak.wav");
+		m_upSoundId   = soundComponent->LoadSoundFromFile("Resources/snd/jump.wav");
+		m_downSoundId = soundComponent->LoadSoundFromFile("Resources/snd/co2.wav");
 	}
 }
 
@@ -37,7 +37,7 @@ void PlayerSoundComponent::Update()
 
 void PlayerSoundComponent::RequestSound(bool upSound)
 {
-	static bool enablePlayerSounds = false;	
+	static bool enablePlayerSounds = true;	
 	if (!enablePlayerSounds)
 		return;
 
