@@ -97,59 +97,48 @@ void GameBoard::UpdatePlayerDying()
 
 void GameBoard::SpawnNewRandomObstacles()
 {
-	float time = GameEngine::GameEngineMain::GetGameTime();
+	//float time = GameEngine::GameEngineMain::GetGameTime();
 
-	if (time < 5) {
-		static float minNextSpawnTime = 1.1f;
-		static float maxNextSpawnTime = 1.1f;
+	static float minNextSpawnTime = 1.5f;
+	static float maxNextSpawnTime = 1.5f;
 
-		static float minObstacleXPos = 800.f;
-		static float maxObstacleXPos = 800.f;
-		static float minObstacleYPos = 0.f;
-		static float maxObstacleYPos = 450.f;
+	static float minObstacleXPos = 800.f;
+	static float maxObstacleXPos = 800.f;
+	static float minObstacleYPos = 0.f;
+	static float maxObstacleYPos = 450.f;
+	
+	static float minObstacleHeight = 150.f;
+	static float maxObstacleHeight = 170.f;
+	static float minObstacleWidth = 30.f;
+	static float maxObstacleWidth = 40.f;
 
-		static float minObstacleHeight = 150.f;
-		static float maxObstacleHeight = 170.f;
-		static float minObstacleWidth = 30.f;
-		static float maxObstacleWidth = 40.f;
-	}
-	else {
-		static float minNextSpawnTime = .1f;
-		static float maxNextSpawnTime = .1f;
-
-		static float minObstacleXPos = 800.f;
-		static float maxObstacleXPos = 800.f;
-		static float minObstacleYPos = 0.f;
-		static float maxObstacleYPos = 450.f;
-
-		static float minObstacleHeight = 150.f;
-		static float maxObstacleHeight = 170.f;
-		static float minObstacleWidth = 30.f;
-		static float maxObstacleWidth = 40.f;
-	}
+	static float minCollectibleYPos = 0.f;
+	static float maxCollectibleYPos = 450.f;
 
 	
 	sf::Vector2f pos = sf::Vector2f(RandomFloatRange(minObstacleXPos, maxObstacleXPos), RandomFloatRange(minObstacleYPos, maxObstacleYPos));
 	sf::Vector2f size = sf::Vector2f(RandomFloatRange(minObstacleWidth, maxObstacleWidth), RandomFloatRange(minObstacleHeight, maxObstacleHeight));
 
+	sf::Vector2f collectPos = sf::Vector2f(1000, RandomFloatRange(minCollectibleYPos, maxCollectibleYPos));
 	SpawnNewObstacle(pos, size);
+	SpawnNewCollectible(collectPos, size);
 
 	m_lastObstacleSpawnTimer = RandomFloatRange(minNextSpawnTime, maxNextSpawnTime);
 }
-
 
 void GameBoard::SpawnNewRandomTiledObstacles()
 {
 	static int minObstacleCount = 2;
 	static int maxObstacleCount = 7;
 
-	static float minNextSpawnTime = 0.3f;
-	static float maxNextSpawnTime = 0.7f;
+	static float minNextSpawnTime = 0.5f;
+	static float maxNextSpawnTime = 0.5f;
 
 	static float minObstacleXPos = 350.f;
 	static float maxObstacleXPos = 450.f;
 	static float minObstacleYPos = 20.f;
 	static float maxObstacleYPos = 450.f;
+
 
 	sf::Vector2f pos = sf::Vector2f(RandomFloatRange(minObstacleXPos, maxObstacleXPos), RandomFloatRange(minObstacleYPos, maxObstacleYPos));	
 	sf::Vector2f size = sf::Vector2f(32.f, 32.f);
@@ -170,7 +159,17 @@ void GameBoard::SpawnNewObstacle(const sf::Vector2f& pos, const sf::Vector2f& si
 	ObstacleEntity* obstacle = new ObstacleEntity();
 	GameEngine::GameEngineMain::GetInstance()->AddEntity(obstacle);
 	obstacle->SetPos(pos);
-	obstacle->SetSize(sf::Vector2f(size.x, size.y));
+	obstacle->SetSize(sf::Vector2f(30, 30));
+
+	m_obstacles.push_back(obstacle);
+}
+
+void GameBoard::SpawnNewCollectible(const sf::Vector2f& pos, const sf::Vector2f& size)
+{
+	ObstacleEntity* obstacle = new ObstacleEntity();
+	GameEngine::GameEngineMain::GetInstance()->AddEntity(obstacle);
+	obstacle->SetPos(pos);
+	obstacle->SetSize(sf::Vector2f(20, 20));
 
 	m_obstacles.push_back(obstacle);
 }
