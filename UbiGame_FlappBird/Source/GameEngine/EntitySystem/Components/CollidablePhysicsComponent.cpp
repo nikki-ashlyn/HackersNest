@@ -47,8 +47,9 @@ void CollidablePhysicsComponent::Update()
 		AABBRect colideBox = colComponent->GetWorldAABB();
 		if (myBox.intersects(colideBox, intersection))
 		{
+			sf::Vector2f pos = sf::Vector2f(10000,100000);
 
-			colComponent->OnRemoveFromWorld();
+			colComponent->GetEntity()->SetPos(pos);
 
 		}
 	}
