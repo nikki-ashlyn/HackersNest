@@ -167,5 +167,8 @@
     <ClInclude Include="CollectibleEntity.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Game\GameComponents\pointSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -23,10 +23,12 @@ PlayerEntity::PlayerEntity()
 
 	//Animation
 	m_animComponent = AddComponent<GameEngine::AnimationComponent>();
+
+	
 		
 	//Collisions
 	//AddComponent<GameEngine::CollidablePhysicsComponent>();
-	AddComponent<pointSystem>();
+	AddComponent<GameEngine::pointSystem>();
 	//Particles
 	GameEngine::ParticleEmitterComponent* emitterComponent = AddComponent<GameEngine::ParticleEmitterComponent>();
 	GameEngine::SParticleDefinition particleDef = GameEngine::SParticleDefinition(GameEngine::eTexture::Particles, 1, sf::Vector2f(32.f, 32.f), GameEngine::EAnimationId::Smoke, 1.f);
