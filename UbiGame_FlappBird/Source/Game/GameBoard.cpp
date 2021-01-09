@@ -18,7 +18,7 @@ GameBoard::GameBoard()
 	m_player = new PlayerEntity();
 	
 	GameEngine::GameEngineMain::GetInstance()->AddEntity(m_player);
-	m_player->SetPos(sf::Vector2f(50.f, 50.f));	
+	m_player->SetPos(sf::Vector2f(200.f, 50.f));	
 	m_player->SetSize(sf::Vector2f(40.f, 40.f));
 	
 	CreateBackGround();
@@ -39,13 +39,13 @@ GameBoard::~GameBoard()
 void GameBoard::Update()
 {	
 	float dt = GameEngine::GameEngineMain::GetInstance()->GetTimeDelta();
+	
 	if (!m_isGameOver)
 	{
 		m_lastObstacleSpawnTimer -= dt;
 		if (m_lastObstacleSpawnTimer <= 0.f)
 		{
-			//SpawnNewRandomObstacles();
-			SpawnNewRandomTiledObstacles();
+			SpawnNewRandomObstacles();
 		}
 
 		UpdateObstacles(dt);
@@ -89,6 +89,7 @@ void GameBoard::UpdatePlayerDying()
 	static float xToPlayerDie = 0.f;
 	if (m_player->GetPos().x < xToPlayerDie)
 	{
+		CreateGameOver();
 		m_isGameOver = true;
 	}
 }
@@ -96,19 +97,38 @@ void GameBoard::UpdatePlayerDying()
 
 void GameBoard::SpawnNewRandomObstacles()
 {
-	static float minNextSpawnTime = 0.3f;
-	static float maxNextSpawnTime = 0.7f;
+	float time = GameEngine::GameEngineMain::GetGameTime();
 
-	static float minObstacleXPos = 50.f;
-	static float maxObstacleXPos = 450.f;
-	static float minObstacleYPos = 20.f;
-	static float maxObstacleYPos = 450.f;
+	if (time < 5) {
+		static float minNextSpawnTime = 1.1f;
+		static float maxNextSpawnTime = 1.1f;
+
+		static float minObstacleXPos = 800.f;
+		static float maxObstacleXPos = 800.f;
+		static float minObstacleYPos = 0.f;
+		static float maxObstacleYPos = 450.f;
+
+		static float minObstacleHeight = 150.f;
+		static float maxObstacleHeight = 170.f;
+		static float minObstacleWidth = 30.f;
+		static float maxObstacleWidth = 40.f;
+	}
+	else {
+		static float minNextSpawnTime = .1f;
+		static float maxNextSpawnTime = .1f;
+
+		static float minObstacleXPos = 800.f;
+		static float maxObstacleXPos = 800.f;
+		static float minObstacleYPos = 0.f;
+		static float maxObstacleYPos = 450.f;
+
+		static float minObstacleHeight = 150.f;
+		static float maxObstacleHeight = 170.f;
+		static float minObstacleWidth = 30.f;
+		static float maxObstacleWidth = 40.f;
+	}
+
 	
-	static float minObstacleHeight = 50.f;
-	static float maxObstacleHeight = 170.f;
-	static float minObstacleWidth = 20.f;
-	static float maxObstacleWidth = 40.f;
-
 	sf::Vector2f pos = sf::Vector2f(RandomFloatRange(minObstacleXPos, maxObstacleXPos), RandomFloatRange(minObstacleYPos, maxObstacleYPos));
 	sf::Vector2f size = sf::Vector2f(RandomFloatRange(minObstacleWidth, maxObstacleWidth), RandomFloatRange(minObstacleHeight, maxObstacleHeight));
 
@@ -162,6 +182,19 @@ void GameBoard::CreateBackGround()
 	GameEngine::SpriteRenderComponent* render = bgEntity->AddComponent<GameEngine::SpriteRenderComponent>();
 	render->SetTexture(GameEngine::eTexture::BG);
 	render->SetZLevel(0);
+	bgEntity->SetPos(sf::Vector2f(250.f, 250.f));
+	bgEntity->SetSize(sf::Vector2f(500.f, 500.f));
+	GameEngine::GameEngineMain::GetInstance()->AddEntity(bgEntity);
+
+	m_backGround = bgEntity;
+}
+
+void GameBoard::CreateGameOver()
+{
+	GameEngine::Entity* bgEntity = new GameEngine::Entity();
+	GameEngine::SpriteRenderComponent* render = bgEntity->AddComponent<GameEngine::SpriteRenderComponent>();
+	render->SetTexture(GameEngine::eTexture::BG);
+	render->SetZLevel(5);
 	bgEntity->SetPos(sf::Vector2f(250.f, 250.f));
 	bgEntity->SetSize(sf::Vector2f(500.f, 500.f));
 	GameEngine::GameEngineMain::GetInstance()->AddEntity(bgEntity);

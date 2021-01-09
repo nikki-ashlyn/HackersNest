@@ -33,6 +33,7 @@ namespace Game
 		}
 
 		void CreateBackGround();
+		void CreateGameOver();
 		void UpdateBackGround();
 
 		PlayerEntity* m_player;

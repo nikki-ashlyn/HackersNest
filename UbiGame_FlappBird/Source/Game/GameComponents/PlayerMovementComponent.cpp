@@ -47,29 +47,18 @@ void PlayerMovementComponent::Update()
 	static float playerVel = 150.f; //Pixels/s
 
 	sf::Vector2f wantedVel = sf::Vector2f(0.f, 0.f);
+	
+	wantedVel.y += playerVel * 2 * dt;
+	
+	
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-	{
-		wantedVel.x -= playerVel * dt;
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-	{
-		wantedVel.x += playerVel * dt;
-	}
+
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 	{
-		wantedVel.y -= playerVel * dt;
+		wantedVel.y -= playerVel * dt *5;
 		if (m_playerSoundComponent)
 		{
 			m_playerSoundComponent->RequestSound(true);
-		}
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-	{
-		wantedVel.y += playerVel * dt;
-		if (m_playerSoundComponent)
-		{
-			m_playerSoundComponent->RequestSound(false);
 		}
 	}
 
