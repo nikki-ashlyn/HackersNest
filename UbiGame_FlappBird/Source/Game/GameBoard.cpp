@@ -52,7 +52,7 @@ void GameBoard::Update()
 			SpawnNewRandomObstacles();
 		}
 
-		CreateHealthBar();
+		//CreateHealthBar();
 		UpdateObstacles(dt);
 		UpdateBackGround();
 		UpdatePlayerDying();
@@ -90,9 +90,9 @@ void GameBoard::UpdatePlayerDying()
 
 	if (noGameOver)
 		return;
-
+	float time = GameEngine::GameEngineMain::GetGameTime();
 	static float xToPlayerDie = 0.f;
-	if (m_player->GetPos().x < xToPlayerDie)
+	if (time > 30)
 	{
 		CreateGameOver();
 		m_isGameOver = true;
@@ -104,12 +104,12 @@ void GameBoard::SpawnNewRandomObstacles()
 {
 	//float time = GameEngine::GameEngineMain::GetGameTime();
 
-	static float minNextSpawnTime = 1.5f;
-	static float maxNextSpawnTime = 1.5f;
+	static float minNextSpawnTime = 3.5f;
+	static float maxNextSpawnTime = 3.5f;
 
 	static float minObstacleXPos = 800.f;
 	static float maxObstacleXPos = 800.f;
-	static float minObstacleYPos = 150.f;
+	static float minObstacleYPos = 50.f;
 	static float maxObstacleYPos = 450.f;
 	
 	static float minObstacleHeight = 150.f;
@@ -117,7 +117,7 @@ void GameBoard::SpawnNewRandomObstacles()
 	static float minObstacleWidth = 30.f;
 	static float maxObstacleWidth = 40.f;
 
-	static float minCollectibleYPos = 0.f;
+	static float minCollectibleYPos = 50.f;
 	static float maxCollectibleYPos = 450.f;
 
 	
@@ -208,7 +208,7 @@ void GameBoard::CreateGameOver()
 {
 	GameEngine::Entity* bgEntity = new GameEngine::Entity();
 	GameEngine::SpriteRenderComponent* render = bgEntity->AddComponent<GameEngine::SpriteRenderComponent>();
-	render->SetTexture(GameEngine::eTexture::BG);
+	render->SetTexture(GameEngine::eTexture::GameOver);
 	render->SetZLevel(5);
 	bgEntity->SetPos(sf::Vector2f(250.f, 325.f));
 	bgEntity->SetSize(sf::Vector2f(500.f, 650.f));

@@ -16,6 +16,7 @@ namespace GameEngine
 			Tileset,
 			Good,
 			Bad,
+			GameOver,
 			BG,
 			Particles,
 			Count,
@@ -31,6 +32,7 @@ namespace GameEngine
 		case eTexture::Tileset:   return "tileset.png";
 		case eTexture::Good:   return "recycle.png";
 		case eTexture::Bad:   return "co2.png";
+		case eTexture::GameOver:		  return "go.png";
 		case eTexture::BG:		  return "bg.png";
 		case eTexture::Particles: return "particles.png";
 		default:       return "UnknownTexType";

@@ -54,6 +54,7 @@ namespace TextureHelper
         case  GameEngine::eTexture::Good: return sf::Vector2f(441.f, 440.f);
 		case  GameEngine::eTexture::Bad: return sf::Vector2f(624.f, 624.f);
         case  GameEngine::eTexture::BG:	     return sf::Vector2f(500.f, 650.f);
+		case  GameEngine::eTexture::GameOver:	     return sf::Vector2f(500.f, 650.f);
         case  GameEngine::eTexture::Particles: return sf::Vector2f(198.f, 192.f);
         default:							 return sf::Vector2f(-1.f, -1.f);
         }

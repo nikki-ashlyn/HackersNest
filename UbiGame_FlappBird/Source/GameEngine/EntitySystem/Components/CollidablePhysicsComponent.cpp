@@ -54,16 +54,18 @@ void CollidablePhysicsComponent::Update()
 			sf::Vector2f obstacleSize = sf::Vector2f(75, 75);
 			
 			//should increment score
-			if (colComponent->GetEntity()->GetSize() == waterSize) {
-				colComponent->GetEntity()->SetPos(pos);
-				counter--;
-			}
-
-			//should decrement score
 			if (colComponent->GetEntity()->GetSize() == obstacleSize) {
+				colComponent->GetEntity()->SetPos(pos);
+				if (counter > 0) {
+					counter--;
+				}
+				break;
+			}
+			else {
 				colComponent->GetEntity()->SetPos(pos);
 				counter++;
 			}
+
 
 		}
 	}
