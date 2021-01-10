@@ -75,7 +75,7 @@ void PlayerMovementComponent::Update()
 
 	if (m_animComponent)
 	{
-		if (m_flyTimerDt > 0.f)
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 		{
 			if (m_animComponent->GetCurrentAnimation() != GameEngine::EAnimationId::BirdFly)
 			{
