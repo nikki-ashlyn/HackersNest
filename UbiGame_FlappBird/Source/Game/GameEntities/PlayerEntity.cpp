@@ -1,5 +1,5 @@
 #include "PlayerEntity.h"
-#include "Game/GameComponents/pointSystem.h"
+#include "Game/GameComponents/PointSystem.h"
 
 #include "Game/GameComponents/PlayerSoundComponent.h"
 #include "Game/GameComponents/PlayerCameraComponent.h"

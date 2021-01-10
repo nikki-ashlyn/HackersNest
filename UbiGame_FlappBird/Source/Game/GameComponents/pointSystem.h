@@ -12,8 +12,8 @@ namespace GameEngine {
 		pointSystem();
 		virtual ~pointSystem();
 
-		void getcounter();
-		int setCounter(bool collided);
+		int getCounter();
+		void setCounter(bool collided);
 		virtual void Update() override;
 
 

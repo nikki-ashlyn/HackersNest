@@ -1,20 +1,23 @@
 #pragma once
-#include pointSystem.h 
+#include "Game/GameComponents/PointSystem.h"
+#include <vector>
 
-pointSystem::collidableCollectiableComponent() {
+#include "GameEngine/Util/CollisionManager.h"	
+using namespace GameEngine;
+pointSystem::pointSystem() {
 	//Object will be created at the start of the same and will have the animation
 	counter = 0; 
 }
 
-pointSystem::~collidableCollectiableComponent() {
+pointSystem::~pointSystem() {
 	//Nothing to add 
 }
 
-void pointSystem::getCounter{
+int pointSystem::getCounter(){
 	return counter;
 }
 
-int pointSystem::setCounter(bool collided) {
+void pointSystem::setCounter(bool collided) {
 
 	if (collided == true) {
 		counter++;
@@ -40,6 +43,28 @@ void pointSystem::Update()
 		{
 
 			//Check if pointer is pointing to water or CO2 
+			
+			//If it is a water drop 
+			if (colComponent->isWaterDrop) {
+				if (counter == 10) {
+					break;
+				}
+
+				counter++; 
+				
+			}
+
+			//If it is smoke 
+			else {
+
+				if (counter == 0) {
+					break; 
+				}
+
+				counter--; 
+
+			}
+	
 
 		}
 	}

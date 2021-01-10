@@ -177,6 +177,8 @@ XCOPY "$(SolutionDir)..\SFML-2.5.0\bin" "$(TargetDir)" /S /Y /I</Command>
     <ClCompile Include="Source\GameEngine\EntitySystem\Components\CollidableComponent.cpp" />
     <ClCompile Include="Source\GameEngine\Util\CollisionManager.cpp" />
     <ClCompile Include="Source\GameEngine\Util\SoundManager.cpp" />
+    <ClCompile Include="Source\Game\GameComponents\pointSystem.cpp" />
+    <ClCompile Include="Source\Game\GameEntities\CollectibleEntity.cpp" />
     <ClCompile Include="Source\Game\GameEntities\ObstacleEntity.cpp" />
     <ClCompile Include="Source\Game\GameComponents\PlayerMovementComponent.cpp" />
     <ClCompile Include="Source\Game\GameEntities\PlayerEntity.cpp" />
@@ -205,6 +207,7 @@ XCOPY "$(SolutionDir)..\SFML-2.5.0\bin" "$(TargetDir)" /S /Y /I</Command>
     <ClInclude Include="Source\GameEngine\Util\CollisionManager.h" />
     <ClInclude Include="Source\GameEngine\Util\SoundManager.h" />
     <ClInclude Include="Source\Game\GameComponents\pointSystem.h" />
+    <ClInclude Include="Source\Game\GameEntities\CollectibleEntity.h" />
     <ClInclude Include="Source\Game\GameEntities\ObstacleEntity.h" />
     <ClInclude Include="Source\Game\GameComponents\PlayerMovementComponent.h" />
     <ClInclude Include="Source\Game\GameEntities\PlayerEntity.h" />
