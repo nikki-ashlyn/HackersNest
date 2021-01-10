@@ -109,7 +109,7 @@ void GameBoard::SpawnNewRandomObstacles()
 
 	static float minObstacleXPos = 800.f;
 	static float maxObstacleXPos = 800.f;
-	static float minObstacleYPos = 0.f;
+	static float minObstacleYPos = 150.f;
 	static float maxObstacleYPos = 450.f;
 	
 	static float minObstacleHeight = 150.f;

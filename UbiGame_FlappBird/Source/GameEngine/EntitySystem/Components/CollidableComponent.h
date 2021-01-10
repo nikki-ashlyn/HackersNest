@@ -21,6 +21,7 @@ namespace GameEngine
 		const AABBRect GetWorldAABB() const;
 
 		void SetBoundingBox(sf::Vector2f size);
+		bool isWaterDrop = false;
 
 	protected:
 		void SetupDefaultBoundingBox();

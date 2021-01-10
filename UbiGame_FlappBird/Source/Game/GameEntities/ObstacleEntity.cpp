@@ -14,7 +14,8 @@ ObstacleEntity::ObstacleEntity()
 	m_renderComponent->SetZLevel(2);
 	m_renderComponent->SetTileIndex(0, 0);
 
-	AddComponent<GameEngine::CollidableComponent>();
+	GameEngine::CollidableComponent* waterDrop = AddComponent<GameEngine::CollidableComponent>();
+	waterDrop->isWaterDrop = true;
 }
 
 

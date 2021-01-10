@@ -48,22 +48,21 @@ void CollidablePhysicsComponent::Update()
 		if (myBox.intersects(colideBox, intersection))
 		{
 			std::cout << counter << '\n';
-			sf::Vector2f pos = sf::Vector2f(10000,100000);
+			sf::Vector2f pos = sf::Vector2f(0,2000);
 
 			sf::Vector2f waterSize = sf::Vector2f(21, 21);
 			sf::Vector2f obstacleSize = sf::Vector2f(20, 20);
-
+			
 			//should increment score
 			if (colComponent->GetEntity()->GetSize() == waterSize) {
-				
 				colComponent->GetEntity()->SetPos(pos);
-				counter++;
+				counter--;
 			}
 
 			//should decrement score
 			if (colComponent->GetEntity()->GetSize() == obstacleSize) {
 				colComponent->GetEntity()->SetPos(pos);
-				counter--;
+				counter++;
 			}
 
 		}
