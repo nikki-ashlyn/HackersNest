@@ -13,7 +13,7 @@ using namespace GameEngine;
 
 ParticleEmitterComponent::ParticleEmitterComponent()
 : m_toEmitTimer(0.f)
-, m_maxTimeToEmit(0.3f)
+, m_maxTimeToEmit(0.6f)
 , m_minTimeToEmit(0.1f)
 {
 
