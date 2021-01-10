@@ -48,14 +48,14 @@ void PlayerMovementComponent::Update()
 
 	sf::Vector2f wantedVel = sf::Vector2f(0.f, 0.f);
 	
-	wantedVel.y += playerVel * 2 * dt;
+	wantedVel.y += playerVel * 3 * dt;
 	
 	
 
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 	{
-		wantedVel.y -= playerVel * dt *5;
+		wantedVel.y -= playerVel * dt *7;
 		if (m_playerSoundComponent)
 		{
 			m_playerSoundComponent->RequestSound(true);

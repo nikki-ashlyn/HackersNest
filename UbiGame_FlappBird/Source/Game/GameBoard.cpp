@@ -20,7 +20,7 @@ GameBoard::GameBoard()
 	m_player = new PlayerEntity();
 	
 	GameEngine::GameEngineMain::GetInstance()->AddEntity(m_player);
-	m_player->SetPos(sf::Vector2f(200.f, 50.f));	
+	m_player->SetPos(sf::Vector2f(100.f, 50.f));	
 	m_player->SetSize(sf::Vector2f(100.f, 150.f));
 	
 	CreateBackGround();
@@ -171,7 +171,7 @@ void GameBoard::SpawnNewCollectible(const sf::Vector2f& pos, const sf::Vector2f&
 	CollectibleEntity* obstacle = new CollectibleEntity();
 	GameEngine::GameEngineMain::GetInstance()->AddEntity(obstacle);
 	obstacle->SetPos(pos);
-	obstacle->SetSize(sf::Vector2f(20, 20));
+	obstacle->SetSize(sf::Vector2f(21, 21));
 
 	m_obstacles.push_back(obstacle);
 }
