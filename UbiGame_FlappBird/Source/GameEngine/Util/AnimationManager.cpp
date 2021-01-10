@@ -48,6 +48,24 @@ void AnimationManager::InitStaticGameAnimations()
 			10,
 			15)
 	);
+	m_animDefinitions.push_back
+	(
+		SAnimationDefinition(
+			EAnimationId::GoodBlock,
+			eTexture::Good,
+			sf::Vector2i(0, 0),
+			1,
+			1)
+	);
+	m_animDefinitions.push_back
+	(
+		SAnimationDefinition(
+			EAnimationId::BadBlock,
+			eTexture::Bad,
+			sf::Vector2i(0, 0),
+			1,
+			1)
+	);
 }
 
 

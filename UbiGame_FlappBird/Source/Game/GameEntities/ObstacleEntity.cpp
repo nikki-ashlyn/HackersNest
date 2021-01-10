@@ -10,7 +10,7 @@ ObstacleEntity::ObstacleEntity()
 {
 	m_renderComponent = AddComponent<GameEngine::SpriteRenderComponent>();
 	m_renderComponent->SetFillColor(sf::Color::Red);
-	m_renderComponent->SetTexture(GameEngine::eTexture::BG);
+	m_renderComponent->SetTexture(GameEngine::eTexture::Bad);
 	m_renderComponent->SetZLevel(2);
 	m_renderComponent->SetTileIndex(0, 0);
 

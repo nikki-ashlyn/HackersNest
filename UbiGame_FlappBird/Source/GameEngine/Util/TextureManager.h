@@ -14,6 +14,8 @@ namespace GameEngine
 			Player = 0,
 			PlayerIdle,
 			Tileset,
+			Good,
+			Bad,
 			BG,
 			Particles,
 			Count,
@@ -27,6 +29,8 @@ namespace GameEngine
 		case eTexture::PlayerIdle: return "tree.png";
 		case eTexture::Player:    return "treePlayer.png";
 		case eTexture::Tileset:   return "tileset.png";
+		case eTexture::Good:   return "recycle.png";
+		case eTexture::Bad:   return "co2.png";
 		case eTexture::BG:		  return "bg.png";
 		case eTexture::Particles: return "particles.png";
 		default:       return "UnknownTexType";

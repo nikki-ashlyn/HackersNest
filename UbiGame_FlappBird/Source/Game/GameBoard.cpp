@@ -142,11 +142,11 @@ void GameBoard::SpawnNewRandomTiledObstacles()
 	static float minObstacleXPos = 350.f;
 	static float maxObstacleXPos = 450.f;
 	static float minObstacleYPos = 20.f;
-	static float maxObstacleYPos = 450.f;
+	static float maxObstacleYPos = 600.f;
 
 
 	sf::Vector2f pos = sf::Vector2f(RandomFloatRange(minObstacleXPos, maxObstacleXPos), RandomFloatRange(minObstacleYPos, maxObstacleYPos));	
-	sf::Vector2f size = sf::Vector2f(32.f, 32.f);
+	sf::Vector2f size = sf::Vector2f(75.f, 75.f);
 
 	int obstacleCount = (int)RandomFloatRange((float)minObstacleCount, (float)maxObstacleCount);
 	for (int a = 0; a < obstacleCount; ++a)
@@ -164,7 +164,7 @@ void GameBoard::SpawnNewObstacle(const sf::Vector2f& pos, const sf::Vector2f& si
 	ObstacleEntity* obstacle = new ObstacleEntity();
 	GameEngine::GameEngineMain::GetInstance()->AddEntity(obstacle);
 	obstacle->SetPos(pos);
-	obstacle->SetSize(sf::Vector2f(20, 20));
+	obstacle->SetSize(sf::Vector2f(75.f, 75.f));
 	
 	m_obstacles.push_back(obstacle);
 }
@@ -174,7 +174,7 @@ void GameBoard::SpawnNewCollectible(const sf::Vector2f& pos, const sf::Vector2f&
 	CollectibleEntity* obstacle = new CollectibleEntity();
 	GameEngine::GameEngineMain::GetInstance()->AddEntity(obstacle);
 	obstacle->SetPos(pos);
-	obstacle->SetSize(sf::Vector2f(21, 21));
+	obstacle->SetSize(sf::Vector2f(100.f, 100.f));
 
 	m_obstacles.push_back(obstacle);
 }

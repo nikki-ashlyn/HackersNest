@@ -10,10 +10,12 @@ namespace GameEngine
 	namespace EAnimationId
 	{
 		enum type
-		{
+		{	
 			BirdIdle,
 			BirdFly,
 			Smoke,
+			GoodBlock,
+			BadBlock,
 			None,
 		};
 	}
