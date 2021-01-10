@@ -1,8 +1,6 @@
 #pragma once
 #include "GameEngine/EntitySystem/Components/CollidableComponent.h"
 
-namespace GameEngine {
-
 	class pointSystem : public CollidableComponent {
 
 	private:
@@ -20,4 +18,3 @@ namespace GameEngine {
 
 
 	};
-}
