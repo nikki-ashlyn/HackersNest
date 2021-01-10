@@ -28,7 +28,7 @@ PlayerEntity::PlayerEntity()
 	
 	//Particles
 	GameEngine::ParticleEmitterComponent* emitterComponent = AddComponent<GameEngine::ParticleEmitterComponent>();
-	GameEngine::SParticleDefinition particleDef = GameEngine::SParticleDefinition(GameEngine::eTexture::Particles, 1, sf::Vector2f(32.f, 32.f), GameEngine::EAnimationId::Smoke, 1.f);
+	GameEngine::SParticleDefinition particleDef = GameEngine::SParticleDefinition(GameEngine::eTexture::Particles, 1, sf::Vector2f(50.f, 50.f), GameEngine::EAnimationId::Smoke, 1.f);
 	emitterComponent->SetParticleDefinition(particleDef);
 
 

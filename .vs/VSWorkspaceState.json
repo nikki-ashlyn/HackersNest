@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\UbiGame_FlappBird",
+    "\\UbiGame_FlappBird\\Resources",
+    "\\UbiGame_FlappBird\\Resources\\img",
+    "\\UbiGame_FlappBird\\Resources\\snd",
+    "\\UbiGame_FlappBird\\Source",
+    "\\UbiGame_FlappBird\\Source\\Game",
+    "\\UbiGame_FlappBird\\Source\\Game\\GameComponents",
+    "\\UbiGame_FlappBird\\Source\\Game\\GameEntities"
+  ],
+  "SelectedNode": "\\UbiGame_FlappBird\\UbiGame.sln",
+  "PreviewInSolutionExplorer": false
+}

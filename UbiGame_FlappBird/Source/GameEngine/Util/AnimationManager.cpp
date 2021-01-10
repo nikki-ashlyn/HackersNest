@@ -25,7 +25,7 @@ void AnimationManager::InitStaticGameAnimations()
 			EAnimationId::BirdIdle,
 			eTexture::Player,
 			sf::Vector2i(0, 0),
-			10,
+			8,
 			3)
 	);
 
@@ -34,8 +34,8 @@ void AnimationManager::InitStaticGameAnimations()
 		SAnimationDefinition(
 			EAnimationId::BirdFly,
 			eTexture::Player,
-			sf::Vector2i(0, 1),
-			10,
+			sf::Vector2i(0,0),
+			8,
 			15)
 	);
 

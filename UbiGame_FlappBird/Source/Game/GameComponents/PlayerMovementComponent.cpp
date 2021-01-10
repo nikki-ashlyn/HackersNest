@@ -44,7 +44,7 @@ void PlayerMovementComponent::Update()
 	}
 
 	float dt = GameEngine::GameEngineMain::GetTimeDelta();
-	static float playerVel = 150.f; //Pixels/s
+	static float playerVel = 120.f; //Pixels/s
 
 	sf::Vector2f wantedVel = sf::Vector2f(0.f, 0.f);
 	
@@ -89,8 +89,8 @@ void PlayerMovementComponent::Update()
 	}
 
 	
-	static float rotationVel = 50.f; //Deg/s
-	static float maxRotation = 20.f; //Deg
+	static float rotationVel = 0.f; //Deg/s
+	static float maxRotation = 0.f; //Deg
 	
 	float currentRotation = GetEntity()->GetRot();
 	float wantedRot = 0.f;

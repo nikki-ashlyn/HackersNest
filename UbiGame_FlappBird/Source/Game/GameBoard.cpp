@@ -21,9 +21,9 @@ GameBoard::GameBoard()
 	
 	GameEngine::GameEngineMain::GetInstance()->AddEntity(m_player);
 	m_player->SetPos(sf::Vector2f(200.f, 50.f));	
-	m_player->SetSize(sf::Vector2f(40.f, 40.f));
+	m_player->SetSize(sf::Vector2f(100.f, 150.f));
 	
-	//CreateBackGround();
+	CreateBackGround();
 	//Debug
 	for (int a = 0; a < 3; ++a)
 	{
@@ -183,8 +183,8 @@ void GameBoard::CreateBackGround()
 	GameEngine::SpriteRenderComponent* render = bgEntity->AddComponent<GameEngine::SpriteRenderComponent>();
 	render->SetTexture(GameEngine::eTexture::BG);
 	render->SetZLevel(0);
-	bgEntity->SetPos(sf::Vector2f(250.f, 250.f));
-	bgEntity->SetSize(sf::Vector2f(500.f, 500.f));
+	bgEntity->SetPos(sf::Vector2f(250.f, 325.f));
+	bgEntity->SetSize(sf::Vector2f(500.f, 650.f));
 	GameEngine::GameEngineMain::GetInstance()->AddEntity(bgEntity);
 
 	m_backGround = bgEntity;
@@ -196,8 +196,8 @@ void GameBoard::CreateGameOver()
 	GameEngine::SpriteRenderComponent* render = bgEntity->AddComponent<GameEngine::SpriteRenderComponent>();
 	render->SetTexture(GameEngine::eTexture::BG);
 	render->SetZLevel(5);
-	bgEntity->SetPos(sf::Vector2f(250.f, 250.f));
-	bgEntity->SetSize(sf::Vector2f(500.f, 500.f));
+	bgEntity->SetPos(sf::Vector2f(250.f, 325.f));
+	bgEntity->SetSize(sf::Vector2f(500.f, 650.f));
 	GameEngine::GameEngineMain::GetInstance()->AddEntity(bgEntity);
 
 	m_backGround = bgEntity;
