@@ -141,8 +141,8 @@ void GameBoard::SpawnNewRandomTiledObstacles()
 
 	static float minObstacleXPos = 350.f;
 	static float maxObstacleXPos = 450.f;
-	static float minObstacleYPos = 20.f;
-	static float maxObstacleYPos = 600.f;
+	static float minObstacleYPos = 200.f;
+	static float maxObstacleYPos = 500.f;
 
 
 	sf::Vector2f pos = sf::Vector2f(RandomFloatRange(minObstacleXPos, maxObstacleXPos), RandomFloatRange(minObstacleYPos, maxObstacleYPos));	

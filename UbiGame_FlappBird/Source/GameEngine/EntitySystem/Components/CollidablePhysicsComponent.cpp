@@ -50,8 +50,8 @@ void CollidablePhysicsComponent::Update()
 			std::cout << counter << '\n';
 			sf::Vector2f pos = sf::Vector2f(0,2000);
 
-			sf::Vector2f waterSize = sf::Vector2f(21, 21);
-			sf::Vector2f obstacleSize = sf::Vector2f(20, 20);
+			sf::Vector2f waterSize = sf::Vector2f(100, 100);
+			sf::Vector2f obstacleSize = sf::Vector2f(75, 75);
 			
 			//should increment score
 			if (colComponent->GetEntity()->GetSize() == waterSize) {
