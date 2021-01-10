@@ -87,10 +87,10 @@
     <ClCompile Include="Source\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source.cpp">
+    <ClCompile Include="CollectibleEntity.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CollectibleEntity.cpp">
+    <ClCompile Include="Source\Game\GameEntities\HealthBar.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Game\GameComponents\pointSystem.cpp">
@@ -167,13 +167,10 @@
     <ClInclude Include="Source\Game\GameComponents\PlayerCameraComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Header.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="CollectibleEntity.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Game\GameComponents\pointSystem.h">
+    <ClInclude Include="Source\Game\GameEntities\HealthBar.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Game\GameEntities\CollectibleEntity.h">

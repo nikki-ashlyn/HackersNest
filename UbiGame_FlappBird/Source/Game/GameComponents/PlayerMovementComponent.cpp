@@ -44,18 +44,18 @@ void PlayerMovementComponent::Update()
 	}
 
 	float dt = GameEngine::GameEngineMain::GetTimeDelta();
-	static float playerVel = 150.f; //Pixels/s
+	static float playerVel = 120.f; //Pixels/s
 
 	sf::Vector2f wantedVel = sf::Vector2f(0.f, 0.f);
 	
-	wantedVel.y += playerVel * 2 * dt;
+	wantedVel.y += playerVel * 3 * dt;
 	
 	
 
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 	{
-		wantedVel.y -= playerVel * dt *5;
+		wantedVel.y -= playerVel * dt *7;
 		if (m_playerSoundComponent)
 		{
 			m_playerSoundComponent->RequestSound(true);
@@ -75,7 +75,7 @@ void PlayerMovementComponent::Update()
 
 	if (m_animComponent)
 	{
-		if (m_flyTimerDt > 0.f)
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 		{
 			if (m_animComponent->GetCurrentAnimation() != GameEngine::EAnimationId::BirdFly)
 			{
@@ -89,8 +89,8 @@ void PlayerMovementComponent::Update()
 	}
 
 	
-	static float rotationVel = 50.f; //Deg/s
-	static float maxRotation = 20.f; //Deg
+	static float rotationVel = 0.f; //Deg/s
+	static float maxRotation = 0.f; //Deg
 	
 	float currentRotation = GetEntity()->GetRot();
 	float wantedRot = 0.f;

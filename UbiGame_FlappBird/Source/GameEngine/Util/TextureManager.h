@@ -12,6 +12,7 @@ namespace GameEngine
 		{
 			None = -1,
 			Player = 0,
+			PlayerIdle,
 			Tileset,
 			BG,
 			Particles,
@@ -23,7 +24,8 @@ namespace GameEngine
 	{
 		switch (texture)
 		{
-		case eTexture::Player:    return "player.png";
+		case eTexture::PlayerIdle: return "tree.png";
+		case eTexture::Player:    return "treePlayer.png";
 		case eTexture::Tileset:   return "tileset.png";
 		case eTexture::BG:		  return "bg.png";
 		case eTexture::Particles: return "particles.png";

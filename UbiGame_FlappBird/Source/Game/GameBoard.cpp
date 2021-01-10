@@ -7,6 +7,7 @@
 #include "Game/GameEntities/PlayerEntity.h"
 #include "Game/GameEntities/ObstacleEntity.h"
 #include "Game/GameEntities/CollectibleEntity.h"
+#include "Game/GameEntities/HealthBar.h"
 
 
 using namespace Game;
@@ -20,10 +21,10 @@ GameBoard::GameBoard()
 	m_player = new PlayerEntity();
 	
 	GameEngine::GameEngineMain::GetInstance()->AddEntity(m_player);
-	m_player->SetPos(sf::Vector2f(200.f, 50.f));	
-	m_player->SetSize(sf::Vector2f(40.f, 40.f));
+	m_player->SetPos(sf::Vector2f(100.f, 50.f));	
+	m_player->SetSize(sf::Vector2f(100.f, 150.f));
 	
-	//CreateBackGround();
+	CreateBackGround();
 	//Debug
 	for (int a = 0; a < 3; ++a)
 	{
@@ -50,6 +51,7 @@ void GameBoard::Update()
 			SpawnNewRandomObstacles();
 		}
 
+		CreateHealthBar();
 		UpdateObstacles(dt);
 		UpdateBackGround();
 		UpdatePlayerDying();
@@ -171,7 +173,18 @@ void GameBoard::SpawnNewCollectible(const sf::Vector2f& pos, const sf::Vector2f&
 	CollectibleEntity* obstacle = new CollectibleEntity();
 	GameEngine::GameEngineMain::GetInstance()->AddEntity(obstacle);
 	obstacle->SetPos(pos);
-	obstacle->SetSize(sf::Vector2f(20, 20));
+	obstacle->SetSize(sf::Vector2f(21, 21));
+
+	m_obstacles.push_back(obstacle);
+}
+
+void GameBoard::CreateHealthBar()
+{
+	sf::Vector2f barPosition = sf::Vector2f(30.f, 30.f);
+	HealthBar* obstacle = new HealthBar();
+	GameEngine::GameEngineMain::GetInstance()->AddEntity(obstacle);
+	obstacle->SetPos(barPosition);
+	obstacle->SetSize(sf::Vector2f(350, 30));
 
 	m_obstacles.push_back(obstacle);
 }
@@ -183,8 +196,8 @@ void GameBoard::CreateBackGround()
 	GameEngine::SpriteRenderComponent* render = bgEntity->AddComponent<GameEngine::SpriteRenderComponent>();
 	render->SetTexture(GameEngine::eTexture::BG);
 	render->SetZLevel(0);
-	bgEntity->SetPos(sf::Vector2f(250.f, 250.f));
-	bgEntity->SetSize(sf::Vector2f(500.f, 500.f));
+	bgEntity->SetPos(sf::Vector2f(250.f, 325.f));
+	bgEntity->SetSize(sf::Vector2f(500.f, 650.f));
 	GameEngine::GameEngineMain::GetInstance()->AddEntity(bgEntity);
 
 	m_backGround = bgEntity;
@@ -196,8 +209,8 @@ void GameBoard::CreateGameOver()
 	GameEngine::SpriteRenderComponent* render = bgEntity->AddComponent<GameEngine::SpriteRenderComponent>();
 	render->SetTexture(GameEngine::eTexture::BG);
 	render->SetZLevel(5);
-	bgEntity->SetPos(sf::Vector2f(250.f, 250.f));
-	bgEntity->SetSize(sf::Vector2f(500.f, 500.f));
+	bgEntity->SetPos(sf::Vector2f(250.f, 325.f));
+	bgEntity->SetSize(sf::Vector2f(500.f, 650.f));
 	GameEngine::GameEngineMain::GetInstance()->AddEntity(bgEntity);
 
 	m_backGround = bgEntity;

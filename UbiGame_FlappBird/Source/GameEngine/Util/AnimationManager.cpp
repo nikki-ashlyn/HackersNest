@@ -23,10 +23,10 @@ void AnimationManager::InitStaticGameAnimations()
 	(
 		SAnimationDefinition(
 			EAnimationId::BirdIdle,
-			eTexture::Player,
+			eTexture::PlayerIdle,
 			sf::Vector2i(0, 0),
-			10,
-			3)
+			1,
+			1)
 	);
 
 	m_animDefinitions.push_back
@@ -34,8 +34,8 @@ void AnimationManager::InitStaticGameAnimations()
 		SAnimationDefinition(
 			EAnimationId::BirdFly,
 			eTexture::Player,
-			sf::Vector2i(0, 1),
-			10,
+			sf::Vector2i(0,0),
+			8,
 			15)
 	);
 
