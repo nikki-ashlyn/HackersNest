@@ -7,6 +7,7 @@
 #include "Game/GameEntities/PlayerEntity.h"
 #include "Game/GameEntities/ObstacleEntity.h"
 #include "Game/GameEntities/CollectibleEntity.h"
+#include "Game/GameEntities/HealthBar.h"
 
 
 using namespace Game;
@@ -50,6 +51,7 @@ void GameBoard::Update()
 			SpawnNewRandomObstacles();
 		}
 
+		CreateHealthBar();
 		UpdateObstacles(dt);
 		UpdateBackGround();
 		UpdatePlayerDying();
@@ -172,6 +174,17 @@ void GameBoard::SpawnNewCollectible(const sf::Vector2f& pos, const sf::Vector2f&
 	GameEngine::GameEngineMain::GetInstance()->AddEntity(obstacle);
 	obstacle->SetPos(pos);
 	obstacle->SetSize(sf::Vector2f(21, 21));
+
+	m_obstacles.push_back(obstacle);
+}
+
+void GameBoard::CreateHealthBar()
+{
+	sf::Vector2f barPosition = sf::Vector2f(30.f, 30.f);
+	HealthBar* obstacle = new HealthBar();
+	GameEngine::GameEngineMain::GetInstance()->AddEntity(obstacle);
+	obstacle->SetPos(barPosition);
+	obstacle->SetSize(sf::Vector2f(350, 30));
 
 	m_obstacles.push_back(obstacle);
 }
