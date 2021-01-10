@@ -9,7 +9,7 @@ using namespace GameEngine;
 
 CollidablePhysicsComponent::CollidablePhysicsComponent()
 {
-	counter = 0;
+	counter = 1;
 }
 
 
@@ -53,16 +53,20 @@ void CollidablePhysicsComponent::Update()
 			sf::Vector2f waterSize = sf::Vector2f(100, 100);
 			sf::Vector2f obstacleSize = sf::Vector2f(75, 75);
 			
+			bool obstacle = false;
+
+			colComponent->GetEntity()->SetPos(pos);
 			//should increment score
 			if (colComponent->GetEntity()->GetSize() == obstacleSize) {
-				colComponent->GetEntity()->SetPos(pos);
+				obstacle = true;
+			}
+			
+			if (obstacle){
 				if (counter > 0) {
 					counter--;
 				}
-				break;
 			}
 			else {
-				colComponent->GetEntity()->SetPos(pos);
 				counter++;
 			}
 
