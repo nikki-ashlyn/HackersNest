@@ -1,6 +1,7 @@
 #pragma once
 #include "Game/GameComponents/PointSystem.h"
 #include <vector>
+#include <iostream>
 
 #include "GameEngine/Util/CollisionManager.h"	
 using namespace GameEngine;
@@ -41,13 +42,13 @@ void pointSystem::Update()
 		AABBRect colideBox = colComponent->GetWorldAABB();
 		if (myBox.intersects(colideBox, intersection))
 		{
-
+			std::cout << counter << '\n';
 			//Check if pointer is pointing to water or CO2 
 			
 			//If it is a water drop 
 			if (colComponent->isWaterDrop) {
-				if (counter == 10) {
-					break;
+				if (counter == 2) {
+					
 				}
 
 				counter++; 

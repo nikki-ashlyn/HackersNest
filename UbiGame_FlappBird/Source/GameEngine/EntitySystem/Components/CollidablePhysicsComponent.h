@@ -12,7 +12,7 @@ namespace GameEngine
 
 		virtual void OnAddToWorld() override;
 		virtual void OnRemoveFromWorld() override;
-
+		int counter;
 		virtual void Update() override;
 	};
 }

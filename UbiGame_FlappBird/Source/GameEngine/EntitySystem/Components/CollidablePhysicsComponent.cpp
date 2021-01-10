@@ -2,14 +2,14 @@
 
 #include "GameEngine/Util/CollisionManager.h"
 #include "GameEngine/EntitySystem/Entity.h"
-
+#include <iostream>
 #include <vector>
 
 using namespace GameEngine;
 
 CollidablePhysicsComponent::CollidablePhysicsComponent()
 {
-
+	counter = 0;
 }
 
 
@@ -47,6 +47,7 @@ void CollidablePhysicsComponent::Update()
 		AABBRect colideBox = colComponent->GetWorldAABB();
 		if (myBox.intersects(colideBox, intersection))
 		{
+			std::cout << counter << '\n';
 			sf::Vector2f pos = sf::Vector2f(10000,100000);
 
 			sf::Vector2f waterSize = sf::Vector2f(21, 21);
@@ -56,11 +57,13 @@ void CollidablePhysicsComponent::Update()
 			if (colComponent->GetEntity()->GetSize() == waterSize) {
 				
 				colComponent->GetEntity()->SetPos(pos);
+				counter++;
 			}
 
 			//should decrement score
 			if (colComponent->GetEntity()->GetSize() == obstacleSize) {
 				colComponent->GetEntity()->SetPos(pos);
+				counter--;
 			}
 
 		}
